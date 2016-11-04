@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Dashboard extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,6 +22,17 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('dashboard');
 	}
+        
+        public function PaparDashboard()
+	{
+	$this->load->view('surat/surat_list');
+            //echo "hello";
+            
+
+
+	}
+        
+        
         
         
         

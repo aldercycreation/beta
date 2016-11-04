@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Senarai Agensi</title>
+        <title>harviacode.com - codeigniter crud generator</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
         <style>
@@ -11,7 +11,6 @@
         </style>
     </head>
     <body>
-        
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <h2 style="margin-top:0px">Agensi List</h2>

@@ -3,39 +3,39 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Agensi extends CI_Controller
+class Awam extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Agensi_model');
+        $this->load->model('Awam_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $agensi = $this->Agensi_model->get_all();
+        $awam = $this->Awam_model->get_all();
 
         $data = array(
-            'agensi_data' => $agensi
+            'awam_data' => $awam
         );
 
-        $this->load->view('agensi/agensi_list', $data);
+        $this->load->view('awam/awam_list', $data);
     }
 
     public function read($id) 
     {
-        $row = $this->Agensi_model->get_by_id($id);
+        $row = $this->Awam_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'aid' => $row->aid,
+		'awid' => $row->awid,
 		'nama' => $row->nama,
 		'penerangan' => $row->penerangan,
 	    );
-            $this->load->view('agensi/agensi_read', $data);
+            $this->load->view('awam/awam_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('agensi'));
+            redirect(site_url('awam'));
         }
     }
 
@@ -43,12 +43,12 @@ class Agensi extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('agensi/create_action'),
-	    'aid' => set_value('aid'),
+            'action' => site_url('awam/create_action'),
+	    'awid' => set_value('awid'),
 	    'nama' => set_value('nama'),
 	    'penerangan' => set_value('penerangan'),
 	);
-        $this->load->view('agensi/agensi_form', $data);
+        $this->load->view('awam/awam_form', $data);
     }
     
     public function create_action() 
@@ -63,28 +63,28 @@ class Agensi extends CI_Controller
 		'penerangan' => $this->input->post('penerangan',TRUE),
 	    );
 
-            $this->Agensi_model->insert($data);
+            $this->Awam_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('agensi'));
+            redirect(site_url('awam'));
         }
     }
     
     public function update($id) 
     {
-        $row = $this->Agensi_model->get_by_id($id);
+        $row = $this->Awam_model->get_by_id($id);
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('agensi/update_action'),
-		'aid' => set_value('aid', $row->aid),
+                'action' => site_url('awam/update_action'),
+		'awid' => set_value('awid', $row->awid),
 		'nama' => set_value('nama', $row->nama),
 		'penerangan' => set_value('penerangan', $row->penerangan),
 	    );
-            $this->load->view('agensi/agensi_form', $data);
+            $this->load->view('awam/awam_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('agensi'));
+            redirect(site_url('awam'));
         }
     }
     
@@ -93,30 +93,30 @@ class Agensi extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('aid', TRUE));
+            $this->update($this->input->post('awid', TRUE));
         } else {
             $data = array(
 		'nama' => $this->input->post('nama',TRUE),
 		'penerangan' => $this->input->post('penerangan',TRUE),
 	    );
 
-            $this->Agensi_model->update($this->input->post('aid', TRUE), $data);
+            $this->Awam_model->update($this->input->post('awid', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('agensi'));
+            redirect(site_url('awam'));
         }
     }
     
     public function delete($id) 
     {
-        $row = $this->Agensi_model->get_by_id($id);
+        $row = $this->Awam_model->get_by_id($id);
 
         if ($row) {
-            $this->Agensi_model->delete($id);
+            $this->Awam_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('agensi'));
+            redirect(site_url('awam'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('agensi'));
+            redirect(site_url('awam'));
         }
     }
 
@@ -125,14 +125,14 @@ class Agensi extends CI_Controller
 	$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 	$this->form_validation->set_rules('penerangan', 'penerangan', 'trim|required');
 
-	$this->form_validation->set_rules('aid', 'aid', 'trim');
+	$this->form_validation->set_rules('awid', 'awid', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
 }
 
-/* End of file Agensi.php */
-/* Location: ./application/controllers/Agensi.php */
+/* End of file Awam.php */
+/* Location: ./application/controllers/Awam.php */
 /* Please DO NOT modify this information : */
 /* Generated by Harviacode Codeigniter CRUD Generator 2016-11-03 16:10:13 */
 /* http://harviacode.com */

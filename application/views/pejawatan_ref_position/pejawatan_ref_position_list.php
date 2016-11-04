@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Senarai Pengguna</title>
+        <title>harviacode.com - codeigniter crud generator</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
         <style>
@@ -11,11 +11,9 @@
         </style>
     </head>
     <body>
-        
-        <?php include "menu.php";?>
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <h2 style="margin-top:0px">Pengguna List</h2>
+                <h2 style="margin-top:0px">Pejawatan_ref_position List</h2>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 4px"  id="message">
@@ -23,43 +21,35 @@
                 </div>
             </div>
             <div class="col-md-4 text-right">
-                <?php echo anchor(site_url('pengguna/create'), 'Create', 'class="btn btn-primary"'); ?>
+                <?php echo anchor(site_url('pejawatan_ref_position/create'), 'Create', 'class="btn btn-primary"'); ?>
 	    </div>
         </div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="80px">No</th>
-                    <th>Nama</th>
-		    <th>NoKP</th>
-		    <th>Email</th>
-		    <th>Bahagian</th>
-		    <th>Iid</th>
-		    <th>Status</th>
-		    <th>Tindakan</th>
+		    <th>Name</th>
+		    <th>Description</th>
+		    <th>Action</th>
                 </tr>
             </thead>
 	    <tbody>
             <?php
             $start = 0;
-            foreach ($pengguna_data as $pengguna)
+            foreach ($pejawatan_ref_position_data as $pejawatan_ref_position)
             {
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
-                    <td><?php echo $pengguna->Nama ?></td>
-		    <td><?php echo $pengguna->NoKP ?></td>
-		    <td><?php echo $pengguna->Email ?></td>
-		    <td><?php echo $pengguna->Bahagian."<br>".$pengguna->Jawatan."<br>". $pengguna->Level ?></td>
-		    <td><?php echo $pengguna->iid ?></td>
-		    <td><?php echo $pengguna->Status ?></td>
+		    <td><?php echo $pejawatan_ref_position->name ?></td>
+		    <td><?php echo $pejawatan_ref_position->description ?></td>
 		    <td style="text-align:center" width="200px">
 			<?php 
-			echo anchor(site_url('pengguna/read/'.$pengguna->pid),'Read'); 
+			echo anchor(site_url('pejawatan_ref_position/read/'.$pejawatan_ref_position->id),'Read'); 
 			echo ' | '; 
-			echo anchor(site_url('pengguna/update/'.$pengguna->pid),'Update'); 
+			echo anchor(site_url('pejawatan_ref_position/update/'.$pejawatan_ref_position->id),'Update'); 
 			echo ' | '; 
-			echo anchor(site_url('pengguna/delete/'.$pengguna->pid),'Delete','onclick="javasciprt: return confirm(\'Anda Pasti?\')"'); 
+			echo anchor(site_url('pejawatan_ref_position/delete/'.$pejawatan_ref_position->id),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'); 
 			?>
 		    </td>
 	        </tr>
