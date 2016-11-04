@@ -31,10 +31,7 @@
                 <tr>
                     <th width="80px">No</th>
                     <th>Nama</th>
-		    <th>NoKP</th>
-		    <th>Email</th>
 		    <th>Bahagian</th>
-		    <th>Iid</th>
 		    <th>Status</th>
 		    <th>Tindakan</th>
                 </tr>
@@ -48,11 +45,17 @@
                 <tr>
 		    <td><?php echo ++$start ?></td>
                     <td><?php echo $pengguna->Nama ?></td>
-		    <td><?php echo $pengguna->NoKP ?></td>
-		    <td><?php echo $pengguna->Email ?></td>
 		    <td><?php echo $pengguna->Bahagian."<br>".$pengguna->Jawatan."<br>". $pengguna->Level ?></td>
-		    <td><?php echo $pengguna->iid ?></td>
-		    <td><?php echo $pengguna->Status ?></td>
+		    <td><?php   
+                            
+                            if ($pengguna->Status='Aktif'){
+                                echo "ok";
+                            }else if ($pengguna->Status='Tidak Aktif'){
+                            echo "not ook";
+                            
+                            }
+                            
+                            ?></td>
 		    <td style="text-align:center" width="200px">
 			<?php 
 			echo anchor(site_url('pengguna/read/'.$pengguna->pid),'Read'); 

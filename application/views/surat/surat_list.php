@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
     <head>
-        <title>harviacode.com - codeigniter crud generator</title>
+        <title>Senarai Surat</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
         <style>
             body{
                 padding: 15px;
             }
-        </style>
+        </style>        
     </head>
     <body>
         <div class="row" style="margin-bottom: 10px">
@@ -28,23 +28,17 @@
             <thead>
                 <tr>
                     <th width="80px">No</th>
+                    <th>Status</th>
+                    <th>TarikhKemasukkan</th>
+                    <th>TarikhSurat</th>
 		    <th>TarikhTerima</th>
-		    <th>Jenis</th>
-		    <th>Awam</th>
-		    <th>Agensi</th>
-		    <th>Bahagian</th>
-		    <th>Individu</th>
-		    <th>Jawatan</th>
-		    <th>Kategori</th>
+		    <th>Pendaftar</th>
 		    <th>RujukanSurat</th>
 		    <th>RingkasanKandungan</th>
-		    <th>TarikhSurat</th>
-		    <th>Status</th>
-		    <th>Imbas</th>
-		    <th>Pendaftar</th>
-		    <th>TarikhKemasukkan</th>
+		    <th>Jenis</th>
+		    <th>Kategori</th>
 		    <th>TindakanTotal</th>
-		    <th>Action</th>
+		    <th>Pilihan</th>
                 </tr>
             </thead>
 	    <tbody>
@@ -55,21 +49,16 @@
                 ?>
                 <tr>
 		    <td><?php echo ++$start ?></td>
-		    <td><?php echo $surat->tarikhTerima ?></td>
-		    <td><?php echo $surat->Jenis ?></td>
-		    <td><?php echo $surat->awam ?></td>
-		    <td><?php echo $surat->agensi ?></td>
-		    <td><?php echo $surat->bahagian ?></td>
-		    <td><?php echo $surat->individu ?></td>
-		    <td><?php echo $surat->jawatan ?></td>
-		    <td><?php echo $surat->kategori ?></td>
+                    <td><?php echo $surat->status ?></td>
+		    <td><?php echo $surat->tarikhKemasukkan ?></td>
+                    <td><?php echo $surat->tarikhSurat ?></td>
+                    <td><?php echo $surat->tarikhTerima ?></td>
+                    <td><?php echo $surat->pendaftar ?></td>
 		    <td><?php echo $surat->rujukanSurat ?></td>
 		    <td><?php echo $surat->RingkasanKandungan ?></td>
-		    <td><?php echo $surat->tarikhSurat ?></td>
-		    <td><?php echo $surat->status ?></td>
-		    <td><?php echo $surat->Imbas ?></td>
-		    <td><?php echo $surat->pendaftar ?></td>
-		    <td><?php echo $surat->tarikhKemasukkan ?></td>
+
+		    <td><?php echo $surat->Jenis ?></td>
+		    <td><?php echo $surat->kategori ?></td>
 		    <td><?php echo $surat->TindakanTotal ?></td>
 		    <td style="text-align:center" width="200px">
 			<?php 
