@@ -13,7 +13,7 @@
     <body>
         <?php 
         $today=date("d/m/Y");
-        echo "Hari ini : " .$today?>
+        echo "Hari ini adalah: " .$today?>
         <h2 style="margin-top:0px">Surat <?php echo $button ?></h2>
         <form action="<?php echo $action; ?>" method="post">
 	    
