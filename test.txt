@@ -1,0 +1,8 @@
+i try clone yg folder beta tu
+
+letak kat desktop.. terus buka github desktop
+
+boleh commi 1 file.. tapi kalau folder.. keluar error submodule
+jadi nak try yg ini
+
+let me try first
