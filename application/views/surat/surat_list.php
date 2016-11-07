@@ -11,6 +11,12 @@
         </style>        
     </head>
     <body>
+        
+        <h1>Selamat Datang <?= $this->session->userdata('NoKP') ?></h1>
+        <a href="<?= site_url('surat/logout') ?>">Logout</a>
+        <?php $this->load->view('/menu');?>
+
+        
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <h2 style="margin-top:0px">Surat List</h2>
@@ -56,7 +62,6 @@
                     <td><?php echo $surat->pendaftar ?></td>
 		    <td><?php echo $surat->rujukanSurat ?></td>
 		    <td><?php echo $surat->RingkasanKandungan ?></td>
-
 		    <td><?php echo $surat->Jenis ?></td>
 		    <td><?php echo $surat->kategori ?></td>
 		    <td><?php echo $surat->TindakanTotal ?></td>

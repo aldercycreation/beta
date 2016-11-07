@@ -1,9 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+/**
+ * @name Home.php
+ * @author Imron Rosdiana
+ */
+class Home extends CI_Controller
+{
 
-	 
     function __construct() {
         parent::__construct();
 
@@ -12,20 +16,15 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-    
-	public function index()
-	{
-        //display multiple views in one page
-        //$this->load->view('menu');
-	$this->load->view('dashboard');
-        $this->load->view('footer');
 
-	}
-        
-        public function logout() {
+    public function index() {
+        $this->load->view('home');
+    }
+
+    public function logout() {
         $data = ['pid', 'NoKP'];
         $this->session->unset_userdata($data);
+
         redirect('login');
     }
-          
 }

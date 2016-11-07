@@ -10,6 +10,8 @@
         </style>
     </head>
     <body>
+         <?php $this->load->view('/menu');?>
+
         <h2 style="margin-top:0px">Pengguna <?php echo $button ?></h2>
         <form action="<?php echo $action; ?>" method="post">
 	    <div class="form-group">

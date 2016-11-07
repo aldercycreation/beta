@@ -12,7 +12,10 @@
     </head>
     <body>
         
-        <?php include "menu.php";?>
+        <h1>Selamat Datang <?= $this->session->userdata('NoKP') ?></h1>
+        <a href="<?= site_url('pengguna/logout') ?>">Logout</a>
+        <?php $this->load->view('/menu');?>
+      
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
                 <h2 style="margin-top:0px">Pengguna List</h2>

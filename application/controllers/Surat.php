@@ -8,6 +8,12 @@ class Surat extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        
+        if(empty($this->session->userdata('pid'))) {//if not login then redirect to login page
+         $this->session->set_flashdata('flash_data', 'You don\'t have access!');
+         redirect('login');
+        }
+        
         $this->load->model('Surat_model');
         $this->load->library('form_validation');
     }
@@ -19,8 +25,8 @@ class Surat extends CI_Controller
         $data = array(
             'surat_data' => $surat
         );
-
         $this->load->view('surat/surat_list', $data);
+        
     }
 
     public function read($id) 
@@ -77,6 +83,8 @@ class Surat extends CI_Controller
 	    'TindakanTotal' => set_value('TindakanTotal'),
 	);
         $this->load->view('surat/surat_form', $data);
+
+        
     }
     
     public function create_action() 
@@ -89,20 +97,20 @@ class Surat extends CI_Controller
             $data = array(
 		'tarikhTerima' => $this->input->post('tarikhTerima',TRUE),
 		'Jenis' => $this->input->post('Jenis',TRUE),
-		'awam' => $this->input->post('awam',TRUE),
-		'agensi' => $this->input->post('agensi',TRUE),
-		'bahagian' => $this->input->post('bahagian',TRUE),
-		'individu' => $this->input->post('individu',TRUE),
+		//'awam' => $this->input->post('awam',TRUE),
+		//'agensi' => $this->input->post('agensi',TRUE),
+		//'bahagian' => $this->input->post('bahagian',TRUE),
+		//'individu' => $this->input->post('individu',TRUE),
 		'jawatan' => $this->input->post('jawatan',TRUE),
 		'kategori' => $this->input->post('kategori',TRUE),
 		'rujukanSurat' => $this->input->post('rujukanSurat',TRUE),
 		'RingkasanKandungan' => $this->input->post('RingkasanKandungan',TRUE),
 		'tarikhSurat' => $this->input->post('tarikhSurat',TRUE),
-		'status' => $this->input->post('status',TRUE),
+		//'status' => $this->input->post('status',TRUE),
 		'Imbas' => $this->input->post('Imbas',TRUE),
-		'pendaftar' => $this->input->post('pendaftar',TRUE),
+		//'pendaftar' => $this->input->post('pendaftar',TRUE),
 		'tarikhKemasukkan' => $this->input->post('tarikhKemasukkan',TRUE),
-		'TindakanTotal' => $this->input->post('TindakanTotal',TRUE),
+		//'TindakanTotal' => $this->input->post('TindakanTotal',TRUE),
 	    );
 
             $this->Surat_model->insert($data);
@@ -141,6 +149,7 @@ class Surat extends CI_Controller
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('surat'));
+            
         }
     }
     
@@ -173,6 +182,7 @@ class Surat extends CI_Controller
             $this->Surat_model->update($this->input->post('sid', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('surat'));
+            
         }
     }
     
@@ -212,6 +222,13 @@ class Surat extends CI_Controller
 	$this->form_validation->set_rules('sid', 'sid', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
+    
+        public function logout() { //make page in session
+        $data = ['pid', 'NoKP'];
+        $this->session->unset_userdata($data);
+        redirect('login');
+    }
+    
 
 }
 
