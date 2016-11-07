@@ -12,7 +12,7 @@
     </head>
     <body>
         <div>
-            <h1>Ups..halaman tidak ditemukan</h1>
+            <h1>Ups..halaman tidak ditemukan ggggggg</h1>
             <h2>harviacode.com</h2>
         </div>
     </body>
