@@ -19,10 +19,10 @@ class Login extends CI_Controller
         if($_POST) {
             $result = $this->login->validate_user($_POST);
             if(!empty($result)) {
-                $data = [
+                $data = array(
                     'pid' => $result->pid,
                     'NoKP' => $result->NoKP
-                ];
+                );
 
                 $this->session->set_userdata($data);
                 redirect('dashboard');

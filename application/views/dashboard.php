@@ -5,8 +5,8 @@
     </head>
     <body>
 
-        <h1>Selamat Datang <?= $this->session->userdata('NoKP') ?></h1>
-        <a href="<?= site_url('dashboard/logout') ?>">Logout</a>
+        <h1>Selamat Datang <?php echo $this->session->userdata('NoKP') ?></h1>
+        <a href="<?php echo site_url('dashboard/logout') ?>">Logout</a>
         <?php $this->load->view('/menu');?>
 
        

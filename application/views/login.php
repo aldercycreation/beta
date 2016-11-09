@@ -41,7 +41,7 @@
                <div class="form-group">
                <div class="row colbox">
                <div class="col-lg-4 col-sm-4">
-               <form action="<?= site_url('login') ?>" method="post">
+               <form action="<?php echo site_url('login') ?>" method="post">
                <label for="username">Username/MyKad 111</label>
                </div>
                <div class="col-lg-8 col-sm-8">
