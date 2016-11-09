@@ -12,7 +12,7 @@
     </head>
     <body>
         
-        <h1>Selamat Datang <?= $this->session->userdata('NoKP') ?></h1>
+        <h1>Selamat Datang <?php echo $this->session->userdata('NoKP') ?></h1>
         <a href="<?= site_url('pengguna/logout') ?>">Logout</a>
         <?php $this->load->view('/menu');?>
       

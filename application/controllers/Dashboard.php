@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	/* 
+	/*  versi shafiq
     function __construct() {
         parent::__construct();
 
@@ -12,16 +12,22 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
- */
+ */ 
+ 
+ 
     function __construct()
     {
         parent::__construct();
         // jika belum login redirect ke login
-            if ($this->session->userdata('pid')<>1) {
+        if($this->session->userdata('pid') >= '1') {
+        
+        }
+        else
+        {
+        $this->session->set_flashdata('flash_data', 'You don\'t have access!');
                 redirect(site_url('login'));
-            }
-  //      $this->load->model('Pengguna_model');
-   //     $this->load->library('form_validation');
+        }
+
     }
         
 	public function index()
@@ -32,7 +38,7 @@ class Dashboard extends CI_Controller {
         $this->load->view('footer');
 
 	}
- /*       
+ /*  versi shafiq      
         public function logout() {
         $data = ['pid', 'NoKP'];
         $this->session->unset_userdata($data);

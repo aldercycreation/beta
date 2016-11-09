@@ -8,9 +8,14 @@ class Pengguna extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if(empty($this->session->userdata('pid'))) { //if not login then redirect to login page
-         $this->session->set_flashdata('flash_data', 'You don\'t have access!');
-         redirect('login');
+        // jika belum login redirect ke login
+        if($this->session->userdata('pid') >= '1') {
+        
+        }
+        else
+        {
+        $this->session->set_flashdata('flash_data', 'You don\'t have access!');
+                redirect(site_url('login'));
         }
         $this->load->model('Pengguna_model');
         $this->load->library('form_validation');
@@ -174,13 +179,22 @@ class Pengguna extends CI_Controller
 	$this->form_validation->set_rules('pid', 'pid', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
-    
+
+/* code shafiq    
      public function logout() { //make page in session
         $data = ['pid', 'NoKP'];
         $this->session->unset_userdata($data);
         redirect('login');
     }
+*/
 
+      public  function logout() {
+//        destroy session
+        $this->session->sess_destroy();
+        
+//        redirect ke halaman login
+        redirect(site_url('login'));
+    }
 }
 
 /* End of file Pengguna.php */
